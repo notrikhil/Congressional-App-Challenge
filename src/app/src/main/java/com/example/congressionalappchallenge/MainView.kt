@@ -31,10 +31,16 @@ class MainView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        binding.buttonFirst6.setOnClickListener {
+            val email = (binding.editTextTextEmailAddress.text).toString()
+            val pass = (binding.editTextTextPassword.text).toString()
+            if (email == "student@example.com" && pass == "test") {
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            }
         }
+//          binding.buttonFirst6.setOnClickListener {
+//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+//        }
     }
 
     override fun onDestroyView() {
