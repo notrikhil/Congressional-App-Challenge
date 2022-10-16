@@ -37,6 +37,9 @@ class MainView : Fragment() {
             if (email == "student@example.com" && pass == "test") {
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             }
+            if (email == "admin@example.com" && pass == "test"){
+                findNavController().navigate(R.id.action_FirstFragment_to_adminView)
+            }
         }
 //          binding.buttonFirst6.setOnClickListener {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
