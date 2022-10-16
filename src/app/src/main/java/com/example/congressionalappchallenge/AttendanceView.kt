@@ -6,14 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.congressionalappchallenge.databinding.AdminBinding
+import com.example.congressionalappchallenge.databinding.AttendanceBinding
 import com.example.congressionalappchallenge.databinding.StudentBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class StudentView : Fragment() {
+class AttendanceView : Fragment() {
 
-    private var _binding: StudentBinding? = null
+    private var _binding: AttendanceBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,19 +26,13 @@ class StudentView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = StudentBinding.inflate(inflater, container, false)
+        _binding = AttendanceBinding.inflate(inflater, container, false)
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
-       }
-//        binding.button6.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
     }
 
     override fun onDestroyView() {
