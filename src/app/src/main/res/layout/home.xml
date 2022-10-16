@@ -23,13 +23,15 @@
         android:layout_width="250dp"
         android:layout_height="90dp"
         android:layout_marginTop="320dp"
-        android:backgroundTint="#953033"
+        android:backgroundTint="#00953033"
         android:text="Sign In"
+        android:textColor="#C82020"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_first"
+        app:strokeColor="#C82626" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
