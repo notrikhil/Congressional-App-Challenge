@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "270801551768",
+    "project_id": "attendance-manager-108a7",
+    "storage_bucket": "attendance-manager-108a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270801551768:android:ef83fbc2c82b4b405eebed",
+        "android_client_info": {
+          "package_name": "com.example.congressionalappchallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270801551768-2a6q1nladql8au50rnih4ch1jsd0di0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Hc82H2MHmjwmD6QQDVQdPMKwPy-dT2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270801551768-2a6q1nladql8au50rnih4ch1jsd0di0n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
