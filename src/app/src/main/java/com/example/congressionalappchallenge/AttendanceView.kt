@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.example.congressionalappchallenge.databinding.AdminBinding
 import com.example.congressionalappchallenge.databinding.AttendanceBinding
@@ -33,8 +34,11 @@ class AttendanceView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }
+        setFragmentResultListener("currentClass") { requestKey, bundle ->
 
+            binding.textviewFirst.text = (bundle.getString("Class"))
+        }
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

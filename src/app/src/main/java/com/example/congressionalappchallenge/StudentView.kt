@@ -1,10 +1,11 @@
 package com.example.congressionalappchallenge
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.example.congressionalappchallenge.databinding.StudentBinding
 
@@ -31,9 +32,31 @@ class StudentView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.button.setOnClickListener {
+            binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
-       }
+            val bundle = Bundle()
+            bundle.putString("Class", "Class 1")
+            setFragmentResult("currentClass", bundle)
+            }
+        binding.button2.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
+            val bundle = Bundle()
+            bundle.putString("Class", "Class 2")
+            setFragmentResult("currentClass", bundle)
+        }
+        binding.button5.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
+            val bundle = Bundle()
+            bundle.putString("Class", "Class 3")
+            setFragmentResult("currentClass", bundle)
+        }
+        binding.button3.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
+            val bundle = Bundle()
+            bundle.putString("Class", "Class 4")
+            setFragmentResult("currentClass", bundle)
+        }
+
 //        binding.button6.setOnClickListener {
 //            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
 //        }
