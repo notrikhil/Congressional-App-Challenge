@@ -35,8 +35,14 @@ class AttendanceView : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setFragmentResultListener("currentClass") { requestKey, bundle ->
-
-            binding.textviewFirst.text = (bundle.getString("Class"))
+            var ClassString = bundle.getString("Class")
+            binding.textviewFirst.text = ClassString
+            binding.button7.setOnClickListener {
+                // Person Clicked Absent create function(ClassString, Absent)
+            }
+            binding.button4.setOnClickListener {
+                // Person Clicked Present create function(ClassString, Present)
+            }
         }
     }
     override fun onDestroyView() {
