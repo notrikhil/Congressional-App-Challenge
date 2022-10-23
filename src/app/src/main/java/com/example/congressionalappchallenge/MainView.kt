@@ -40,6 +40,9 @@ class MainView : Fragment() {
             if (email == "admin@example.com" && pass == "test"){
                 findNavController().navigate(R.id.action_FirstFragment_to_adminView)
             }
+            if (email == "teacher@example.com" && pass == "test"){
+                findNavController().navigate(R.id.action_FirstFragment_to_TeacherView)
+            }
         }
 //          binding.buttonFirst6.setOnClickListener {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)

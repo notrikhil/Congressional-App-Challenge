@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentView">
+    tools:context=".TeacherView">
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button5"
         android:layout_width="380dp"
         android:layout_height="160dp"
         android:layout_marginTop="60dp"
@@ -16,14 +16,14 @@
         android:textDirection="firstStrong"
         android:textSize="20sp"
         app:cornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button6"
         android:layout_width="380dp"
         android:layout_height="160dp"
         android:layout_marginTop="10dp"
@@ -33,11 +33,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button7"
         android:layout_width="380dp"
         android:layout_height="160dp"
         android:layout_marginTop="10dp"
@@ -46,11 +46,11 @@
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button6"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button8"
         android:layout_width="380dp"
         android:layout_height="160dp"
         android:layout_marginTop="10dp"
@@ -59,7 +59,7 @@
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button7"
         tools:ignore="SpeakableTextPresentCheck" />
 
 

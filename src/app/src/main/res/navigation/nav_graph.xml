@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_adminView"
             app:destination="@id/adminView" />
+        <action
+            android:id="@+id/action_FirstFragment_to_TeacherView"
+            app:destination="@id/TeacherView" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -43,4 +46,17 @@
         android:id="@+id/attendanceView"
         android:name="com.example.congressionalappchallenge.AttendanceView"
         android:label="AttendanceView" />
+    <fragment
+        android:id="@+id/TeacherView"
+        android:name="com.example.congressionalappchallenge.TeacherView"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/teacher">
+
+        <action
+            android:id="@+id/action_TeacherView_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_TeacherView_to_attendanceView"
+            app:destination="@id/attendanceView" />
+    </fragment>
 </navigation>
