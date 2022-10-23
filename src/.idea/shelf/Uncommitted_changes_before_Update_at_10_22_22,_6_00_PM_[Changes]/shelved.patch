@@ -1,0 +1,159 @@
+Index: app/src/main/java/com/example/congressionalappchallenge/MainView.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.congressionalappchallenge\n\nimport android.os.Bundle\nimport androidx.fragment.app.Fragment\nimport android.view.LayoutInflater\nimport android.view.View\nimport android.view.ViewGroup\nimport androidx.navigation.fragment.findNavController\nimport com.example.congressionalappchallenge.databinding.HomeBinding\n\n/**\n * A simple [Fragment] subclass as the default destination in the navigation.\n */\nclass MainView : Fragment() {\n\n    private var _binding: HomeBinding? = null\n\n    // This property is only valid between onCreateView and\n    // onDestroyView.\n    private val binding get() = _binding!!\n\n    override fun onCreateView(\n        inflater: LayoutInflater, container: ViewGroup?,\n        savedInstanceState: Bundle?\n    ): View? {\n\n        _binding = HomeBinding.inflate(inflater, container, false)\n        return binding.root\n\n    }\n\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\n        super.onViewCreated(view, savedInstanceState)\n        binding.buttonFirst6.setOnClickListener {\n            val email = (binding.editTextTextEmailAddress.text).toString()\n            val pass = (binding.editTextTextPassword.text).toString()\n            if (email == \"student@example.com\" && pass == \"test\") {\n                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)\n            }\n            if (email == \"admin@example.com\" && pass == \"test\"){\n                findNavController().navigate(R.id.action_FirstFragment_to_adminView)\n            }\n        }\n//          binding.buttonFirst6.setOnClickListener {\n//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)\n//        }\n    }\n\n    override fun onDestroyView() {\n        super.onDestroyView()\n        _binding = null\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/congressionalappchallenge/MainView.kt b/app/src/main/java/com/example/congressionalappchallenge/MainView.kt
+--- a/app/src/main/java/com/example/congressionalappchallenge/MainView.kt	(revision 3b7e9723126a150d4d93d485405f0e9a10088e35)
++++ b/app/src/main/java/com/example/congressionalappchallenge/MainView.kt	(date 1666486384518)
+@@ -40,6 +40,9 @@
+             if (email == "admin@example.com" && pass == "test"){
+                 findNavController().navigate(R.id.action_FirstFragment_to_adminView)
+             }
++            if(email == "teacher@example.com" && pass == "test"){
++                findNavController().navigate(R.id.action_FirstFragment_to_teacherView)
++            }
+         }
+ //          binding.buttonFirst6.setOnClickListener {
+ //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+Index: app/src/main/res/navigation/nav_graph.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<navigation xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/nav_graph\"\n    app:startDestination=\"@id/FirstFragment\">\n\n    <fragment\n        android:id=\"@+id/FirstFragment\"\n        android:name=\"com.example.congressionalappchallenge.MainView\"\n        android:label=\"@string/first_fragment_label\"\n        tools:layout=\"@layout/home\">\n\n        <action\n            android:id=\"@+id/action_FirstFragment_to_SecondFragment\"\n            app:destination=\"@id/SecondFragment\" />\n        <action\n            android:id=\"@+id/action_FirstFragment_to_adminView\"\n            app:destination=\"@id/adminView\" />\n    </fragment>\n    <fragment\n        android:id=\"@+id/SecondFragment\"\n        android:name=\"com.example.congressionalappchallenge.StudentView\"\n        android:label=\"@string/second_fragment_label\"\n        tools:layout=\"@layout/student\">\n\n        <action\n            android:id=\"@+id/action_SecondFragment_to_FirstFragment\"\n            app:destination=\"@id/FirstFragment\" />\n        <action\n            android:id=\"@+id/action_SecondFragment_to_attendanceView\"\n            app:destination=\"@id/attendanceView\" />\n    </fragment>\n    <fragment\n        android:id=\"@+id/adminView\"\n        android:name=\"com.example.congressionalappchallenge.AdminView\"\n        android:label=\"AdminView\" >\n        <action\n            android:id=\"@+id/action_adminView_to_FirstFragment\"\n            app:destination=\"@id/FirstFragment\" />\n    </fragment>\n    <fragment\n        android:id=\"@+id/attendanceView\"\n        android:name=\"com.example.congressionalappchallenge.AttendanceView\"\n        android:label=\"AttendanceView\" />\n</navigation>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/navigation/nav_graph.xml b/app/src/main/res/navigation/nav_graph.xml
+--- a/app/src/main/res/navigation/nav_graph.xml	(revision 3b7e9723126a150d4d93d485405f0e9a10088e35)
++++ b/app/src/main/res/navigation/nav_graph.xml	(date 1666486741335)
+@@ -17,6 +17,9 @@
+         <action
+             android:id="@+id/action_FirstFragment_to_adminView"
+             app:destination="@id/adminView" />
++        <action
++            android:id="@+id/action_FirstFragment_to_teacherView"
++            app:destination="@id/teacherView" />
+     </fragment>
+     <fragment
+         android:id="@+id/SecondFragment"
+@@ -43,4 +46,12 @@
+         android:id="@+id/attendanceView"
+         android:name="com.example.congressionalappchallenge.AttendanceView"
+         android:label="AttendanceView" />
++    <fragment
++        android:id="@+id/teacherView"
++        android:name="com.example.congressionalappchallenge.teacherView"
++        android:label="teacherView" >
++        <action
++            android:id="@+id/action_teacherView_to_FirstFragment"
++            app:destination="@id/FirstFragment" />
++    </fragment>
+ </navigation>
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\nbuildscript {\n    repositories {\n        // Make sure that you have the following two repositories\n        google()  // Google's Maven repository\n        mavenCentral()  // Maven Central repository\n    }\n    dependencies {\n        classpath 'com.google.gms:google-services:4.3.14'\n\n    }\n}\n\nplugins {\n    id 'com.android.application' version '7.3.0' apply false\n    id 'com.android.library' version '7.3.0' apply false\n    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 3b7e9723126a150d4d93d485405f0e9a10088e35)
++++ b/build.gradle	(date 1666485212847)
+@@ -12,7 +12,7 @@
+ }
+ 
+ plugins {
+-    id 'com.android.application' version '7.3.0' apply false
+-    id 'com.android.library' version '7.3.0' apply false
++    id 'com.android.application' version '7.3.1' apply false
++    id 'com.android.library' version '7.3.1' apply false
+     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+ }
+\ No newline at end of file
+Index: ../.idea/Congressional-App-Challenge.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"JAVA_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\n    <exclude-output />\n    <content url=\"file://$MODULE_DIR$\" />\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../.idea/Congressional-App-Challenge.iml b/../.idea/Congressional-App-Challenge.iml
+--- a/../.idea/Congressional-App-Challenge.iml	(revision 3b7e9723126a150d4d93d485405f0e9a10088e35)
++++ b/../.idea/Congressional-App-Challenge.iml	(date 1666484313373)
+@@ -1,9 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="android" name="Android">
++      <configuration />
++    </facet>
++  </component>
+   <component name="NewModuleRootManager" inherit-compiler-output="true">
+     <exclude-output />
+     <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
++    <orderEntry type="jdk" jdkName="Android API 33, extension level 3 Platform" jdkType="Android SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: app/src/main/java/com/example/congressionalappchallenge/teacherView.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/congressionalappchallenge/teacherView.kt b/app/src/main/java/com/example/congressionalappchallenge/teacherView.kt
+new file mode 100644
+--- /dev/null	(date 1666486811070)
++++ b/app/src/main/java/com/example/congressionalappchallenge/teacherView.kt	(date 1666486811070)
+@@ -0,0 +1,46 @@
++package com.example.congressionalappchallenge
++
++import android.os.Bundle
++import androidx.fragment.app.Fragment
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import androidx.navigation.fragment.findNavController
++import com.example.congressionalappchallenge.databinding.StudentBinding
++
++/**
++ * A simple [Fragment] subclass as the second destination in the navigation.
++ */
++class teacherView : Fragment() {
++
++    private var _binding: StudentBinding? = null
++
++    // This property is only valid between onCreateView and
++    // onDestroyView.
++    private val binding get() = _binding!!
++
++    override fun onCreateView(
++        inflater: LayoutInflater, container: ViewGroup?,
++        savedInstanceState: Bundle?
++    ): View? {
++
++        _binding = StudentBinding.inflate(inflater, container, false)
++        return binding.root
++
++    }
++
++    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
++        super.onViewCreated(view, savedInstanceState)
++        binding.button.setOnClickListener {
++            findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
++       }
++//        binding.button6.setOnClickListener {
++//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
++//        }
++    }
++
++    override fun onDestroyView() {
++        super.onDestroyView()
++        _binding = null
++    }
++}
+\ No newline at end of file
