@@ -13,6 +13,11 @@ public class AttendanceHelper {
     private final FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
     private final DatabaseReference reference = rootNode.getReference("users");
 
+    public AttendanceHelper(String email) {
+        setStudentEmail(email);
+        setStudentAttendanceData(new boolean [] {false, false, false, false});
+    }
+
     public AttendanceHelper(String email, boolean[] present) {
         setStudentEmail(email);
         setStudentAttendanceData(present);
@@ -20,6 +25,21 @@ public class AttendanceHelper {
 
     public void setStudentEmail(String email) {
         studentEmail = email;
+    }
+
+    public void setPeriodAttendance(int period, boolean present) {
+        if (period == 1) {
+            isPresentPeriod1 = present;
+        }
+        else if (period == 2) {
+            isPresentPeriod2 = present;
+        }
+        else if (period == 3) {
+            isPresentPeriod3 = present;
+        }
+        else {
+            isPresentPeriod4 = present;
+        }
     }
 
     public void setStudentAttendanceData(boolean[] present) {

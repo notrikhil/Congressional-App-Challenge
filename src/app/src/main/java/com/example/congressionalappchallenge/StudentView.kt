@@ -32,28 +32,32 @@ class StudentView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            binding.button1.setOnClickListener {
+        binding.button1.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
             val bundle = Bundle()
             bundle.putString("Class", "Class 1")
+            bundle.putInt("Class Number", 1)
             setFragmentResult("currentClass", bundle)
-            }
+        }
         binding.button2.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
             val bundle = Bundle()
             bundle.putString("Class", "Class 2")
+            bundle.putInt("Class Number", 2)
             setFragmentResult("currentClass", bundle)
         }
         binding.button3.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
             val bundle = Bundle()
             bundle.putString("Class", "Class 3")
+            bundle.putInt("Class Number", 3)
             setFragmentResult("currentClass", bundle)
         }
         binding.button4.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_attendanceView)
             val bundle = Bundle()
             bundle.putString("Class", "Class 4")
+            bundle.putInt("Class Number", 4)
             setFragmentResult("currentClass", bundle)
         }
 

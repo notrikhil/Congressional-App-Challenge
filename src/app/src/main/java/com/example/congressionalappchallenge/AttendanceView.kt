@@ -17,6 +17,7 @@ import com.example.congressionalappchallenge.databinding.StudentBinding
 class AttendanceView : Fragment() {
 
     private var _binding: AttendanceBinding? = null
+    private var attendance = AttendanceHelper("student@example.com")
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,13 +36,34 @@ class AttendanceView : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setFragmentResultListener("currentClass") { requestKey, bundle ->
-            var ClassString = bundle.getString("Class")
-            binding.textviewFirst.text = ClassString
-            binding.button7.setOnClickListener {
-                // Person Clicked Absent create function(ClassString, Absent)
-            }
-            binding.button4.setOnClickListener {
-                // Person Clicked Present create function(ClassString, Present)
+            val classString = bundle.getString("Class")
+            var periodNumber = bundle.getString("Class Number")
+
+            binding.textviewFirst.text = classString
+
+            binding.submitAttendanceReport.setOnClickListener {
+                // Person pressed the button
+                val attendanceReason = (binding.attendanceReason.text).toString()
+                val attendancePeriod = (binding.attendancePeriod.text).toString()
+                val numAttendancePeriod = attendancePeriod.toInt()
+
+                var attendanceTab = booleanArrayOf(false, false, false, false)
+
+                if (attendanceReason == "None") {
+                    attendanceTab = booleanArrayOf(false, false, false, false)
+                }
+                else {
+                    for (i in 0..numAttendancePeriod - 1) {
+                        attendanceTab[i] = false
+                    }
+
+                    for (i in numAttendancePeriod - 1..3) {
+                        attendanceTab[i] = true
+                    }
+                }
+
+                attendance.setStudentAttendanceData(attendanceTab)
+                attendance.save()
             }
         }
     }
