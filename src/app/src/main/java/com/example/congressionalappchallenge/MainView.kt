@@ -36,7 +36,7 @@ class MainView : Fragment() {
             val email = (binding.editTextTextEmailAddress.text).toString()
             val pass = (binding.editTextTextPassword.text).toString()
             if (email == "student@example.com" && pass == "test") {
-                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                findNavController().navigate(R.id.mainToAttendance)
             }
             if (email == "admin@example.com" && pass == "test"){
                 findNavController().navigate(R.id.action_FirstFragment_to_adminView)

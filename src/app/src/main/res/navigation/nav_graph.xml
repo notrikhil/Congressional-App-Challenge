@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_TeacherView"
             app:destination="@id/TeacherView" />
+        <action
+            android:id="@+id/mainToAttendance"
+            app:destination="@id/attendanceView" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
