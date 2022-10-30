@@ -32,34 +32,12 @@ class TeacherView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            binding.button5.setOnClickListener {
-            findNavController().navigate(R.id.action_TeacherView_to_attendanceView)
-            val bundle = Bundle()
-            bundle.putString("Class", "Class 1")
-            setFragmentResult("currentClass", bundle)
-            }
-        binding.button6.setOnClickListener {
-            findNavController().navigate(R.id.action_TeacherView_to_attendanceView)
-            val bundle = Bundle()
-            bundle.putString("Class", "Class 2")
-            setFragmentResult("currentClass", bundle)
-        }
-        binding.button7.setOnClickListener {
-            findNavController().navigate(R.id.action_TeacherView_to_attendanceView)
-            val bundle = Bundle()
-            bundle.putString("Class", "Class 3")
-            setFragmentResult("currentClass", bundle)
-        }
-        binding.button8.setOnClickListener {
-            findNavController().navigate(R.id.action_TeacherView_to_attendanceView)
-            val bundle = Bundle()
-            bundle.putString("Class", "Class 4")
-            setFragmentResult("currentClass", bundle)
-        }
 
-//        binding.button6.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
+        var listView = binding.teacherScrollView
+        var layout = binding.teacherScrollLayout
+
+
+
     }
 
     override fun onDestroyView() {
