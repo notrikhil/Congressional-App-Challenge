@@ -35,36 +35,19 @@ class AttendanceView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setFragmentResultListener("currentClass") { requestKey, bundle ->
-            val classString = bundle.getString("Class")
-            var periodNumber = bundle.getString("Class Number")
+        binding.submitAttendanceReport.setOnClickListener {
+            // Person pressed the button
+            val attendanceReason = (binding.attendanceReason.text).toString()
+            val attendancePeriod = (binding.attendancePeriod.text).toString()
 
-            binding.textviewFirst.text = classString
-
-            binding.submitAttendanceReport.setOnClickListener {
-                // Person pressed the button
-                val attendanceReason = (binding.attendanceReason.text).toString()
-                val attendancePeriod = (binding.attendancePeriod.text).toString()
-                val numAttendancePeriod = attendancePeriod.toInt()
-
-                var attendanceTab = booleanArrayOf(false, false, false, false)
-
-                if (attendanceReason == "None") {
-                    attendanceTab = booleanArrayOf(false, false, false, false)
-                }
-                else {
-                    for (i in 0..numAttendancePeriod - 1) {
-                        attendanceTab[i] = false
-                    }
-
-                    for (i in numAttendancePeriod - 1..3) {
-                        attendanceTab[i] = true
-                    }
-                }
-
-                attendance.setStudentAttendanceData(attendanceTab)
-                attendance.save()
+            var numAttendancePeriod = -1
+            if (attendancePeriod != "") {
+                numAttendancePeriod = attendancePeriod.toInt()
             }
+
+            attendance.setPeriodReturning(numAttendancePeriod)
+            attendance.setStudentAbsentReason(attendanceReason)
+            attendance.save()
         }
     }
     override fun onDestroyView() {

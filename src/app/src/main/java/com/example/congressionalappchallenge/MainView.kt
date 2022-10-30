@@ -26,7 +26,6 @@ class MainView : Fragment() {
 
         _binding = HomeBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,55 +1,61 @@
 package com.example.congressionalappchallenge;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class AttendanceHelper {
     public String studentEmail;
-    public boolean isPresentPeriod1;
-    public boolean isPresentPeriod2;
-    public boolean isPresentPeriod3;
-    public boolean isPresentPeriod4;
+    public String studentName;
+    public int periodReturning = -1;
+    public String attendanceReason = "None";
 
     private final FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
     private final DatabaseReference reference = rootNode.getReference("users");
 
+    public AttendanceHelper() {}
+
     public AttendanceHelper(String email) {
         setStudentEmail(email);
-        setStudentAttendanceData(new boolean [] {false, false, false, false});
     }
 
-    public AttendanceHelper(String email, boolean[] present) {
+    public AttendanceHelper(String email, int periodReturning) {
         setStudentEmail(email);
-        setStudentAttendanceData(present);
+        setPeriodReturning(periodReturning);
     }
 
     public void setStudentEmail(String email) {
         studentEmail = email;
     }
 
-    public void setPeriodAttendance(int period, boolean present) {
-        if (period == 1) {
-            isPresentPeriod1 = present;
-        }
-        else if (period == 2) {
-            isPresentPeriod2 = present;
-        }
-        else if (period == 3) {
-            isPresentPeriod3 = present;
-        }
-        else {
-            isPresentPeriod4 = present;
-        }
+    public void setStudentAbsentReason(String absentReason) {
+        attendanceReason = absentReason;
     }
 
-    public void setStudentAttendanceData(boolean[] present) {
-        isPresentPeriod1 = present[0];
-        isPresentPeriod2 = present[1];
-        isPresentPeriod3 = present[2];
-        isPresentPeriod4 = present[3];
+    public void setStudentName(String sName) {
+        studentName = sName;
     }
+
+    public void setPeriodReturning(int periodReturn) {
+        periodReturning = periodReturn;
+    }
+
+    public int getPeriodReturning() { return periodReturning; }
+    public String getStudentName() { return studentName; }
+    public String getAttendanceReason() { return attendanceReason; }
 
     public void save() {
-        reference.child("test").setValue(this);
+        Map<String, Object> hm = new HashMap<>();
+        hm.put("periodReturning", getPeriodReturning());
+        hm.put("attendanceReason", getAttendanceReason());
+
+        reference.child("test").updateChildren(hm);
     }
 }
